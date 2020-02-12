@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import TweetService from '../Services/TweetService';
-import {Container, Content} from 'native-base';
+import {Container, Content, List} from 'native-base';
 import TweetComponent from '../Components/TweetComponent';
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -20,9 +20,11 @@ export default class HomePage extends React.Component {
   render() {
     return (
       <Content padder>
-        {this.state.tweets.map((tweet, key) => {
-          return <TweetComponent tweet={tweet} key={key} />;
-        })}
+        <List>
+          {this.state.tweets.map((tweet, key) => {
+            return <TweetComponent tweet={tweet} key={key} />;
+          })}
+        </List>
         <Text>{this.state.tweets.length}</Text>
       </Content>
     );

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {API_BASE} from 'react-native-dotenv';
+import env from './../../env';
 
 export default class TweetService {
   constructor() {
@@ -8,13 +8,13 @@ export default class TweetService {
 
   getLatestTweet() {
     return this.http
-      .get(API_BASE + '/tweet/latest')
+      .get(env.API_BASE + '/tweet/latest')
       .then(res => res.data.result);
   }
 
   getTweet(uid) {
     return this.http
-      .get(API_BASE + '/tweet/' + uid)
+      .get(env.API_BASE + '/tweet/' + uid)
       .then(res => res.data.result);
   }
 }
